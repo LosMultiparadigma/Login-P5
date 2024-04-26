@@ -2,8 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate } from 'react-router-dom'
 
-const Home = (props) => {
-  const { loggedIn, email } = props
+const Home = ({loggedIn, email}) => {
   const navigate = useNavigate()
 
   const onButtonClick = () => {
@@ -18,9 +17,11 @@ const Home = (props) => {
     <div className="mainContainer">
       <div className={'titleContainer'}>
         <div>MultiStore</div>
-        <img src="assets/logo.png" alt="website logo" />
+        <div className="flex max-w-24	">
+          <img src="/logo.png" alt="website logo" />
+        </div>
       </div>
-      <div>Bienvenidx a tu espacio</div>
+      <div className="font-bold">Bienvenidx a tu espacio</div>
       <div className={'buttonContainer'}>
         <input
           className={'inputButton'}
