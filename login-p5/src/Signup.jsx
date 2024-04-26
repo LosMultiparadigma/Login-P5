@@ -36,15 +36,15 @@ const Signup = (props) => {
   };
 
   return (
-    <div className={"mainContainer"}>
+    <div className="mainContainer">
     <div>
         <button onClick={() => {navigate('/')}} > Go Back</button>
     </div>
-      <div className={"titleContainer"}>
+      <div className="titleContainer">
         <div>Crea a tu cuenta</div>
       </div>
       <br />
-      <div className={"inputContainer"}>
+      <div className="inputContainer">
         <input
           value={email}
           placeholder="Ingresa tu correo electrónico"
@@ -54,7 +54,7 @@ const Signup = (props) => {
         <label className="errorLabel">{emailError}</label>
       </div>
       <br />
-      <div className={"inputContainer"}>
+      <div className="inputContainer">
         <input
           value={password}
           placeholder="Ingresa tu contraseña"

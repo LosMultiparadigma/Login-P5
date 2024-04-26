@@ -24,14 +24,14 @@ const Home = ({loggedIn, email}) => {
       <div className="font-bold">Bienvenidx a tu espacio</div>
       <div className={'buttonContainer'}>
         <input
-          className={'inputButton'}
+          className="bg-primary inputButton "
           type="button"
           onClick={onButtonClick}
           value={loggedIn ? 'Cerrar Sesión' : 'Ingresa a tu cuenta'}
         />
         
         {!loggedIn && <input
-          className={'inputButton'}
+          className="inputButton bg-secondary "
           type="button"
           onClick={onSignupClick}
           value={'Regístrate'}
