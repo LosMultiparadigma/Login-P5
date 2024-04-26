@@ -38,7 +38,7 @@ const Login = (props) => {
   return (
     <div className={"mainContainer"}>
     <div>
-        <button onClick={() => {navigate('/')}} > Go Back</button>
+        <button className="bg-primary" onClick={() => {navigate('/')}} > Go Back</button>
     </div>
       <div className={"titleContainer"}>
         <div>Ingresa a tu cuenta</div>

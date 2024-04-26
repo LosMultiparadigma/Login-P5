@@ -38,7 +38,7 @@ const Signup = (props) => {
   return (
     <div className="mainContainer">
     <div>
-        <button onClick={() => {navigate('/')}} > Go Back</button>
+        <button className="bg-primary" onClick={() => {navigate('/')}} > Go back</button>
     </div>
       <div className="titleContainer">
         <div>Crea a tu cuenta</div>
