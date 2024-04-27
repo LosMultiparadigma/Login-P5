@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signIn } from 'aws-amplify/auth';
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const Login = (props) => {
 
   const navigate = useNavigate();
 
-  const onButtonClick = () => {
+  const onButtonClick = async () => {
     setEmailError("");
     setPasswordError("");
 
@@ -33,12 +34,25 @@ const Login = (props) => {
       setPasswordError("Tu contraseña debe tener al menos 7 caracteres");
       return;
     }
+
+    try {
+      const { isSignedIn, nextStep } = await signIn({ username: email, password });
+      if (isSignedIn) {
+        navigate('/dashboard'); // Asume que existe una ruta '/dashboard'
+      } else if (nextStep) {
+        // Manejar los próximos pasos según la respuesta de Amplify
+        console.log(nextStep);
+      }
+    } catch (error) {
+      console.error('error signing in:', error);
+      setPasswordError(error.message); // Mostrar errores específicos de inicio de sesión al usuario
+    }
   };
 
   return (
-    <div className={"mainContainer"}>
-    <div>
-        <button className="bg-primary" onClick={() => {navigate('/')}} > Go Back</button>
+    <div className="mainContainer">
+    <div className="text-gray-50">
+        <button className="bg-secondary  " onClick={() => {navigate('/')}} > Go Back</button>
     </div>
       <div className={"titleContainer"}>
         <div>Ingresa a tu cuenta</div>
@@ -66,7 +80,7 @@ const Login = (props) => {
       <br />
       <div className={"inputContainer"}>
         <input
-          className={"inputButton"}
+          className="bg-primary"
           type="button"
           onClick={onButtonClick}
           value={"Ingresar"}

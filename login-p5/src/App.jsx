@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
           <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} />} />
+          <Route path="/dashboard" element={<div>Dashboard</div>} />
         </Routes>
       </BrowserRouter>
     </div>
